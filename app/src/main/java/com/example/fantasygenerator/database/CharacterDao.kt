@@ -1,0 +1,16 @@
+package com.example.fantasygenerator.database
+
+import android.arch.lifecycle.LiveData
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
+import com.example.fantasygenerator.models.Character
+
+@Dao
+interface CharacterDao {
+    @Insert
+    fun insertCharacters(characters: List<Character>)
+
+    @Query("Select * FROM characters")
+    fun getCharacters(): LiveData<List<Character>>
+}
