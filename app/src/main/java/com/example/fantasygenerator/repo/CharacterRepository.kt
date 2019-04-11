@@ -1,15 +1,19 @@
 package com.example.fantasygenerator.repo
 
-import android.arch.lifecycle.LiveData
 import com.example.fantasygenerator.database.CharacterDao
-import com.example.fantasygenerator.models.Character
 
-class CharacterRepository(private val characterDao: CharacterDao) {
-    fun getCharacters(): LiveData<List<Character>?> {
-        return object : List<Character> {
+class CharacterRepository private constructor(private val characterDao: CharacterDao) {
 
-            override fun loadFromDb() = characterDao.getCharacters()
-            override fun shouldFetch(data: List<Character>?) = true
-        }.asLiveData()
+    fun getCharacters() = characterDao.getCharacters()
+
+    fun getCharacter(characterId: String) = characterDao.getCharacter(characterId)
+
+    companion object {
+        @Volatile private var instance: CharacterRepository? = null
+
+        fun getInstance(characterDao: CharacterDao) =
+                instance ?: synchronized(this){
+                    instance ?: CharacterRepository(characterDao).also { instance = it }
+                }
     }
 }
