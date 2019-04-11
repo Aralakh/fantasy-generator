@@ -1,15 +1,12 @@
 package com.example.fantasygenerator.repo
 
 import android.content.Context
-import android.databinding.adapters.Converters
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import com.example.fantasygenerator.database.CharacterDao
 
 @Database(entities = [Character::class], version = 1, exportSchema = false)
-@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun characterDao() : CharacterDao
 
