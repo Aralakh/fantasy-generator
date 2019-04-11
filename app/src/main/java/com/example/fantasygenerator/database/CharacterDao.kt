@@ -13,4 +13,7 @@ interface CharacterDao {
 
     @Query("Select * FROM characters")
     fun getCharacters(): LiveData<List<Character>>
+
+    @Query("Select * FROM characters where id = :characterId")
+    fun getCharacter(characterId: String): LiveData<Character>
 }
