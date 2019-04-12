@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">FantasyGenerator</string>
+
+    <!-- headings/labels -->
     <string name="name">Name</string>
+    <string name="profession">Profession</string>
+    <string name="motivation">Motivation</string>
+    <string name="attributes">Attributes</string>
+    <string name="notes">Misc Notes</string>
+
+    <!-- button labels -->
+    <string name="editButton">Edit</string>
 </resources>
