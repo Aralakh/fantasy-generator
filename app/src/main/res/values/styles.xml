@@ -1,11 +1,34 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+        <!-- Base application theme. -->
+        <style name="AppTheme" parent="Theme.AppCompat">
+            <!-- Customize your theme here. -->
+            <item name="colorPrimary">@color/colorPrimary</item>
+            <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+            <item name="colorAccent">@color/colorAccent</item>
+            <item name="android:windowTranslucentStatus">false</item>
+        </style>
+
+        <style name="NavTheme" parent="Theme.AppCompat.NoActionBar">
+            <item name="colorPrimary">@color/colorPrimary</item>
+            <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+            <item name="colorAccent">@color/colorAccent</item>
+            <item name="android:windowTranslucentStatus">true</item>
+            <item name="windowNoTitle">true</item>
+        </style>
+
+        <style name="HeaderTextTheme">
+            <item name="android:textSize">@dimen/font_large</item>
+            <item name="android:textStyle">bold</item>
+        </style>
+
+        <style name="SubHeaderTextTheme">
+            <item name="android:textSize">@dimen/font_normal</item>
+            <item name="android:textStyle">bold</item>
+        </style>
+
+        <style name="ContentTextTheme">
+            <item name="android:textSize">@dimen/font_normal</item>
+        </style>
 
 </resources>
