@@ -1,6 +1,6 @@
 package com.example.fantasygenerator.database
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.fantasygenerator.models.Character
 
