@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.ConstraintLayout
     android:id="@+id/constraintLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,18 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/match_constraints"
         android:fillViewport="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/constraintLayout"
+        app:layout_constraintStart_toStartOf="@id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="@id/constraintLayout"
         app:layout_constraintBottom_toTopOf="@id/editButton" >
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.ConstraintLayout
             android:id="@+id/containerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/constraintLayout"
             app:layout_constraintEnd_toEndOf="@id/constraintLayout"
-            app:layout_constraintTop_toTopOf="scrollview"
+            app:layout_constraintTop_toTopOf="@id/scrollView"
             app:layout_constraintBottom_toTopOf="@id/editButton" >
 
             <TextView
@@ -130,7 +130,7 @@
                 app:layout_constraintStart_toStartOf="@id/containerLayout"
                 app:layout_constraintTop_toBottomOf="@id/neutralTrait" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.ConstraintLayout>
 
     </ScrollView>
 
@@ -145,4 +145,4 @@
         app:layout_constraintEnd_toEndOf="@id/constraintLayout"
         app:layout_constraintStart_toStartOf="@id/constraintLayout" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.ConstraintLayout>

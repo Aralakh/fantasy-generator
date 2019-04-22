@@ -8,10 +8,16 @@ import com.example.fantasygenerator.models.Character
 interface CharacterDao {
 
     @Insert
-    fun insertCharacter(vararg character: Character)
+    fun insertCharacter(character: Character)
+
+    @Insert
+    fun insertAllCharacters(vararg character: Character)
 
     @Update
-    fun updateCharacter(vararg character: Character)
+    fun updateCharacter(character: Character)
+
+    @Update
+    fun updateAllCharacters(vararg character: Character)
 
     @Delete
     fun removeCharacter(vararg character: Character)

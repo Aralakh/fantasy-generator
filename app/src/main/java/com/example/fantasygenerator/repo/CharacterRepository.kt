@@ -1,13 +1,17 @@
 package com.example.fantasygenerator.repo
 
 import com.example.fantasygenerator.database.CharacterDao
-import java.util.*
+import com.example.fantasygenerator.models.Character
 
 class CharacterRepository private constructor(private val characterDao: CharacterDao) {
 
+    fun addCharacter(character: Character) = characterDao.insertCharacter(character)
+
+    fun addMultipleCharacters(character: List<Character>) = characterDao.insertAllCharacters(*character.toTypedArray())
+
     fun getCharacters() = characterDao.getCharacters()
 
-    fun getCharacter(characterId: UUID) = characterDao.getCharacter(characterId.toString())
+    fun getCharacter(characterId: String) = characterDao.getCharacter(characterId)
 
     companion object {
         @Volatile private var instance: CharacterRepository? = null
