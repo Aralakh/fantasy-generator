@@ -36,7 +36,7 @@ class CharacterDetailFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        savedInstanceState?.let{
+        this.arguments?.let{
             if(it.containsKey(ARG_CHARACTER_ID)){
                 characterId = it.getString(ARG_CHARACTER_ID)
 
