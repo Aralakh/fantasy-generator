@@ -18,7 +18,7 @@ class CharacterDetailFragment : Fragment() {
     private lateinit var characterId: String
 
     companion object {
-        private val ARG_CHARACTER_ID = "characterId"
+        private const val ARG_CHARACTER_ID = "characterId"
         fun newInstance(characterId: String): CharacterDetailFragment {
             val args = Bundle()
             args.putString(ARG_CHARACTER_ID, characterId)
