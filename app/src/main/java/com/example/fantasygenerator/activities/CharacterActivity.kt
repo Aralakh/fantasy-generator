@@ -7,6 +7,9 @@ import com.example.fantasygenerator.fragments.CharacterDetailFragment
 import com.example.fantasygenerator.models.Character
 import com.example.fantasygenerator.repo.AppDatabase
 import com.example.fantasygenerator.repo.CharacterRepository
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class CharacterActivity : AppCompatActivity() {
 
@@ -17,8 +20,13 @@ class CharacterActivity : AppCompatActivity() {
         var character = Character()
         val characterRepository = CharacterRepository.getInstance(
             AppDatabase.getInstance(this).characterDao())
-        characterRepository.addCharacter(character)
-        var fragment = CharacterDetailFragment.newInstance(character.id)
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
+
+        GlobalScope.launch {
+            runBlocking {
+                characterRepository.addCharacter(character)
+                var fragment = CharacterDetailFragment.newInstance(character.id)
+                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
+            }
+        }
     }
 }
