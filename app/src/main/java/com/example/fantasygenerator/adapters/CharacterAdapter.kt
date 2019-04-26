@@ -6,17 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fantasygenerator.R
+import com.example.fantasygenerator.interfaces.AdapterOnClickListener
 import com.example.fantasygenerator.models.Character
 import kotlinx.android.synthetic.main.fragment_character_detail.view.*
 
-class CharacterAdapter(private val listener: (Character) -> Unit, private val context: Context) : RecyclerView.Adapter<CharacterAdapter.CharacterHolder>() {
-    private var characters: MutableList<Character> = mutableListOf()
+//class CharacterAdapter(private val listener: (Character) -> Unit, private val context: Context) : RecyclerView.Adapter<CharacterAdapter.CharacterHolder>() {
+class CharacterAdapter(private var characters: List<Character>, private val context: Context) : RecyclerView.Adapter<CharacterAdapter.CharacterHolder>() {
 
+//    private var characters: MutableList<Character> = mutableListOf()
+var adapterOnClickListener: AdapterOnClickListener? = null
     override fun onBindViewHolder(holder: CharacterHolder, position: Int){
         val character = characters[position]
         holder.apply {
-            bind(character, listener)
+            bind(character)
             itemView.tag = character
+            if(adapterOnClickListener != null) setAdapterListener(adapterOnClickListener!!)
         }
     }
 
@@ -28,18 +32,27 @@ class CharacterAdapter(private val listener: (Character) -> Unit, private val co
 
     override fun getItemCount() = characters.size
 
-    fun setCharacters(characters: MutableList<Character>) {
+    fun setCharacters(characters: List<Character>) {
         this.characters = characters
         notifyDataSetChanged()
     }
 
     class CharacterHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private var adapterOnClickListener: AdapterOnClickListener? = null
 
-        fun bind(character: Character, listener: (Character) -> Unit) = with(itemView) {
+        fun setAdapterListener(adapterOnClickListener: AdapterOnClickListener){
+            this.adapterOnClickListener = adapterOnClickListener
+        }
+//        fun bind(character: Character, listener: (Character) -> Unit) = with(itemView) {
+//            name.text = character.name
+//            setOnClickListener { listener(character) }
+//        }
+
+        fun bind(character: Character) = with(itemView) {
             name.text = character.name
-            setOnClickListener { listener(character) }
+            setOnClickListener {
+                adapterOnClickListener?.itemClicked(character)
+            }
         }
     }
-
-
 }

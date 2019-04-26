@@ -24,7 +24,7 @@ class CharacterActivity : AppCompatActivity() {
         GlobalScope.launch {
             runBlocking {
                 characterRepository.addCharacter(character)
-                var fragment = CharacterDetailFragment.newInstance(character.id)
+                val fragment = CharacterDetailFragment.newInstance(character.id)
                 supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
             }
         }
