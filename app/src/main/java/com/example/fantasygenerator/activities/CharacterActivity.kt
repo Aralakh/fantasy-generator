@@ -23,7 +23,7 @@ class CharacterActivity : AppCompatActivity() {
 
         GlobalScope.launch {
             runBlocking {
-                characterRepository.addCharacter(character)
+//                characterRepository.addCharacter(character)
                 val fragment = CharacterListFragment()
                 supportFragmentManager
                     .beginTransaction()

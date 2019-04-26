@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fantasygenerator.R
 import com.example.fantasygenerator.interfaces.AdapterOnClickListener
 import com.example.fantasygenerator.models.Character
-import kotlinx.android.synthetic.main.fragment_character_detail.view.*
+import kotlinx.android.synthetic.main.list_character_item.view.*
 
 class CharacterAdapter(private val context: Context) : RecyclerView.Adapter<CharacterAdapter.CharacterHolder>() {
 
     private var characters: List<Character> = mutableListOf()
     var adapterOnClickListener: AdapterOnClickListener? = null
+
     override fun onBindViewHolder(holder: CharacterHolder, position: Int){
         val character = characters[position]
         holder.apply {
@@ -44,7 +45,7 @@ class CharacterAdapter(private val context: Context) : RecyclerView.Adapter<Char
         }
 
         fun bind(character: Character) = with(itemView) {
-            name.text = character.name
+            object_name.text = character.name
             setOnClickListener {
                 adapterOnClickListener?.itemClicked(character)
             }

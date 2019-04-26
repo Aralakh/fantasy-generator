@@ -17,7 +17,6 @@ import com.example.fantasygenerator.repo.AppDatabase
 import com.example.fantasygenerator.repo.CharacterRepository
 import com.example.fantasygenerator.viewModels.CharacterListViewModel
 import com.example.fantasygenerator.viewModels.CharacterListViewModelFactory
-import kotlinx.android.synthetic.main.fragment_character_list.*
 import kotlinx.android.synthetic.main.fragment_character_list.view.*
 
 class CharacterListFragment : Fragment(), AdapterOnClickListener {
@@ -40,7 +39,7 @@ class CharacterListFragment : Fragment(), AdapterOnClickListener {
         val adapter = CharacterAdapter(context!!)
         adapter.adapterOnClickListener = this
         subscribeAdapter(adapter)
-
+        view.recyclerView.adapter = adapter
         return view
     }
 
