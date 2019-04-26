@@ -3,7 +3,7 @@ package com.example.fantasygenerator.activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fantasygenerator.R
-import com.example.fantasygenerator.fragments.CharacterDetailFragment
+import com.example.fantasygenerator.fragments.CharacterListFragment
 import com.example.fantasygenerator.models.Character
 import com.example.fantasygenerator.repo.AppDatabase
 import com.example.fantasygenerator.repo.CharacterRepository
@@ -24,8 +24,12 @@ class CharacterActivity : AppCompatActivity() {
         GlobalScope.launch {
             runBlocking {
                 characterRepository.addCharacter(character)
-                val fragment = CharacterDetailFragment.newInstance(character.id)
-                supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
+                val fragment = CharacterListFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .addToBackStack(fragment.tag)
+                    .commit()
             }
         }
     }

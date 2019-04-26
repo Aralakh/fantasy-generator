@@ -10,11 +10,10 @@ import com.example.fantasygenerator.interfaces.AdapterOnClickListener
 import com.example.fantasygenerator.models.Character
 import kotlinx.android.synthetic.main.fragment_character_detail.view.*
 
-//class CharacterAdapter(private val listener: (Character) -> Unit, private val context: Context) : RecyclerView.Adapter<CharacterAdapter.CharacterHolder>() {
-class CharacterAdapter(private var characters: List<Character>, private val context: Context) : RecyclerView.Adapter<CharacterAdapter.CharacterHolder>() {
+class CharacterAdapter(private val context: Context) : RecyclerView.Adapter<CharacterAdapter.CharacterHolder>() {
 
-//    private var characters: MutableList<Character> = mutableListOf()
-var adapterOnClickListener: AdapterOnClickListener? = null
+    private var characters: List<Character> = mutableListOf()
+    var adapterOnClickListener: AdapterOnClickListener? = null
     override fun onBindViewHolder(holder: CharacterHolder, position: Int){
         val character = characters[position]
         holder.apply {
@@ -43,10 +42,6 @@ var adapterOnClickListener: AdapterOnClickListener? = null
         fun setAdapterListener(adapterOnClickListener: AdapterOnClickListener){
             this.adapterOnClickListener = adapterOnClickListener
         }
-//        fun bind(character: Character, listener: (Character) -> Unit) = with(itemView) {
-//            name.text = character.name
-//            setOnClickListener { listener(character) }
-//        }
 
         fun bind(character: Character) = with(itemView) {
             name.text = character.name

@@ -18,6 +18,7 @@ import com.example.fantasygenerator.repo.CharacterRepository
 import com.example.fantasygenerator.viewModels.CharacterListViewModel
 import com.example.fantasygenerator.viewModels.CharacterListViewModelFactory
 import kotlinx.android.synthetic.main.fragment_character_list.*
+import kotlinx.android.synthetic.main.fragment_character_list.view.*
 
 class CharacterListFragment : Fragment(), AdapterOnClickListener {
     private lateinit var viewModel: CharacterListViewModel
@@ -25,8 +26,8 @@ class CharacterListFragment : Fragment(), AdapterOnClickListener {
 
     override fun onCreateView(layoutInflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = layoutInflater.inflate(R.layout.fragment_character_list, container, false)
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.apply{
+        view.recyclerView.layoutManager = LinearLayoutManager(activity)
+        view.recyclerView.apply{
             val borderLine = DividerItemDecoration(this.context, DividerItemDecoration.VERTICAL)
             addItemDecoration(borderLine)
         }
@@ -36,7 +37,7 @@ class CharacterListFragment : Fragment(), AdapterOnClickListener {
         val factory = CharacterListViewModelFactory(characterRepo)
         viewModel = ViewModelProviders.of(this, factory).get(CharacterListViewModel::class.java)
 
-        val adapter = CharacterAdapter(viewModel.characters as List<Character>, context!!)
+        val adapter = CharacterAdapter(context!!)
         adapter.adapterOnClickListener = this
         subscribeAdapter(adapter)
 
@@ -51,6 +52,10 @@ class CharacterListFragment : Fragment(), AdapterOnClickListener {
 
     override fun itemClicked(character: Character) {
         val fragment = CharacterDetailFragment.newInstance(character.id)
-        activity!!.supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(tag).commit()
+        activity!!.supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(tag)
+            .commit()
     }
 }
