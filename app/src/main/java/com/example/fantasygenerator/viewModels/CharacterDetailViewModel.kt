@@ -10,9 +10,7 @@ class CharacterDetailViewModel(
     private val characterId: String
 ) : ViewModel() {
 
-    val character: LiveData<Character>
+    val character: LiveData<Character> =
+        characterRepository.getCharacter(characterId)
 
-    init{
-       character = characterRepository.getCharacter(characterId)
-    }
 }
