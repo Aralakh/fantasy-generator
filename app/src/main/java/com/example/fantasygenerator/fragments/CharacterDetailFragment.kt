@@ -1,12 +1,12 @@
 package com.example.fantasygenerator.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.example.fantasygenerator.R
 import com.example.fantasygenerator.repo.AppDatabase
 import com.example.fantasygenerator.repo.CharacterRepository
@@ -43,11 +43,11 @@ class CharacterDetailFragment : Fragment() {
                 val characterRepository = CharacterRepository.getInstance(
                     AppDatabase.getInstance(context!!.applicationContext).characterDao())
 
-                val characterDetailViewModel = ViewModelProviders.of(this,
+                val characterDetailViewModel = ViewModelProvider(this,
                     CharacterDetailViewModelFactory(characterRepository, characterId))
                     .get(CharacterDetailViewModel::class.java)
 
-                characterDetailViewModel.character.observe(this, Observer { character ->
+                characterDetailViewModel.character.observe(this.viewLifecycleOwner, Observer { character ->
                     name.text = character.name
                     motivation.text = character.motivation
                     profession.text = character.profession
