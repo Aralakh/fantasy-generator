@@ -5,12 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.fantasygenerator.database.CharacterDao
+import com.example.fantasygenerator.database.CharacterOptionsDao
 import com.example.fantasygenerator.models.Character
 import com.example.fantasygenerator.models.CharacterOptions
 
 @Database(entities = [Character::class, CharacterOptions::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun characterDao() : CharacterDao
+    abstract fun characterOptionsDao() : CharacterOptionsDao
 
     companion object {
         @Volatile private var instance: AppDatabase? = null
@@ -25,5 +27,6 @@ abstract class AppDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context): AppDatabase {
             return Room.databaseBuilder(context, AppDatabase::class.java, "Characters.db").build()
         }
+
     }
 }

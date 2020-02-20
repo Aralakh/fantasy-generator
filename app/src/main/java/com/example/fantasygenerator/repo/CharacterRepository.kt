@@ -20,7 +20,7 @@ class CharacterRepository private constructor(private val characterDao: Characte
         @Volatile private var instance: CharacterRepository? = null
 
         fun getInstance(characterDao: CharacterDao) =
-            instance ?: synchronized(this){
+            instance ?: synchronized(this) {
                 instance ?: CharacterRepository(characterDao).also { instance = it }
             }
     }
