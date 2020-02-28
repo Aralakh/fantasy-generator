@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.fantasygenerator.database.CharacterDao
 import com.example.fantasygenerator.database.CharacterOptionsDao
 import com.example.fantasygenerator.models.Character
 import com.example.fantasygenerator.models.CharacterOptions
+import com.example.fantasygenerator.utils.ConverterUtils
 
-@Database(entities = [Character::class, CharacterOptions::class], version = 2, exportSchema = false)
+@Database(entities = arrayOf(Character::class, CharacterOptions::class), version = 3, exportSchema = false)
+@TypeConverters(ConverterUtils::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun characterDao() : CharacterDao
     abstract fun characterOptionsDao() : CharacterOptionsDao

@@ -26,10 +26,10 @@ interface CharacterOptionsDao {
     fun insertAllProfessions(professions: List<Profession>)
 
     @Insert
-    fun insertMaleName(maleName: MaleName)
+    fun insertMaleName(maleName: Name)
 
     @Insert
-    fun insertFemaleName(femaleName: FemaleName)
+    fun insertFemaleName(femaleName: Name)
 
     @Insert
     fun insertPositiveTrait(positiveTrait: PositiveTrait)
@@ -47,10 +47,10 @@ interface CharacterOptionsDao {
     fun insertProfession(profession: Profession)
 
     @Update
-    fun updateMaleName(maleName: MaleName)
+    fun updateMaleName(maleName: Name)
 
     @Update
-    fun updateFemaleName(femaleName: FemaleName)
+    fun updateFemaleName(femaleName: Name)
 
     @Update
     fun updatePositiveTrait(positiveTrait: PositiveTrait)
@@ -68,10 +68,10 @@ interface CharacterOptionsDao {
     fun updateMotivation(motivation: Motivation)
 
     @Delete
-    fun deleteMaleName(maleName: MaleName)
+    fun deleteMaleName(maleName: Name)
 
     @Delete
-    fun deleteFemaleName(femaleName: FemaleName)
+    fun deleteFemaleName(femaleName: Name)
 
     @Delete
     fun deletePositiveTrait(positiveTrait: PositiveTrait)
@@ -88,24 +88,24 @@ interface CharacterOptionsDao {
     @Delete
     fun deleteMotivation(motivation: Motivation)
 
-    @Query("Select * FROM characterOptions")
-    fun getMaleNames(): LiveData<List<MaleName>>
+    @Query("Select maleNames FROM characterOptions")
+    fun getMaleNames(): LiveData<List<Name>>
 
-    @Query("Select * FROM characterOptions")
-    fun getFemaleNames(): LiveData<List<FemaleName>>
+    @Query("Select femaleNames FROM characterOptions")
+    fun getFemaleNames(): LiveData<List<Name>>
 
-    @Query("Select * FROM characterOptions")
+    @Query("Select positiveTraits FROM characterOptions")
     fun getPositiveTraits(): LiveData<List<PositiveTrait>>
 
-    @Query("Select * FROM characterOptions")
+    @Query("Select negativeTraits FROM characterOptions")
     fun getNegativeTraits(): LiveData<List<NegativeTrait>>
 
-    @Query("Select * FROM characterOptions")
+    @Query("Select neutralTraits FROM characterOptions")
     fun getNeutralTraits(): LiveData<List<NeutralTrait>>
 
-    @Query("Select * FROM characterOptions")
+    @Query("Select professions FROM characterOptions")
     fun getProfessions(): LiveData<List<Profession>>
 
-    @Query("Select * FROM characterOptions")
+    @Query("Select motivations FROM characterOptions")
     fun getMotivations(): LiveData<List<Motivation>>
 }

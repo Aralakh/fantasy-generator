@@ -23,8 +23,8 @@ open class JsonFileUtil {
 
     companion object {
 
-        fun loadNames(): Names? {
-            val string = JsonFileUtil().loadJsonFile("assets/names.json")
+        fun loadNames(context: Context): Names? {
+            val string = JsonFileUtil().loadJsonFile("assets/names.json", context)
             var names: Names? = null
             string?.run {
                 names = Gson().fromJson<Names>(this)

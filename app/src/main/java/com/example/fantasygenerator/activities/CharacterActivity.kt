@@ -1,25 +1,16 @@
 package com.example.fantasygenerator.activities
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LiveData
-import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.example.fantasygenerator.R
-import com.example.fantasygenerator.database.CharacterDao
 import com.example.fantasygenerator.fragments.CharacterListFragment
 import com.example.fantasygenerator.models.Character
-import com.example.fantasygenerator.models.FemaleName
-import com.example.fantasygenerator.models.Names
+import com.example.fantasygenerator.models.Name
 import com.example.fantasygenerator.repo.AppDatabase
 import com.example.fantasygenerator.repo.CharacterOptionsRepository
 import com.example.fantasygenerator.repo.CharacterRepository
 import com.example.fantasygenerator.utils.JsonFileUtil
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.*
-import java.io.File
 
 class CharacterActivity : AppCompatActivity() {
 
@@ -41,16 +32,12 @@ class CharacterActivity : AppCompatActivity() {
                 AppDatabase.getInstance(this@CharacterActivity)
                     .characterOptionsDao()
             )
-        val names: List<FemaleName>? = characterOptionsRepository.getFemaleNames().value
-        names?.run {
+        val names: List<Name>? = characterOptionsRepository.getFemaleNames().value
+        names?.forEach {
 
-            forEach { name ->
-                if (name.femaleName.startsWith("B"))
-                //toDo MaleName & FemaleName should inherit from base type so either can work for Character name
-                    character.name = name.toString()
-            }
+            it.name.startsWith("B")
+                character.name = it.name
         }
-
 
         GlobalScope.launch {
             runBlocking {
@@ -65,8 +52,8 @@ class CharacterActivity : AppCompatActivity() {
         }
     }
 
-    suspend fun loadDatabaseData() = withContext(Dispatchers.IO) {
-        val names = JsonFileUtil.loadNames()
+    private suspend fun loadDatabaseData() = withContext(Dispatchers.IO) {
+        val names = JsonFileUtil.loadNames(this@CharacterActivity)
         names?.run {
             val characterOptionsRepository = CharacterOptionsRepository
                 .getInstance(

@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "characterOptions")
 data class CharacterOptions(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
     @Embedded
     val names: Names,
     @Embedded
@@ -14,21 +15,14 @@ data class CharacterOptions(
     val motivations: List<Motivation>
 )
 
-
-@Entity
 data class Names(
-    val maleNames: List<MaleName>,
-    val femaleNames: List<FemaleName>
+    val maleNames: List<Name>,
+    val femaleNames: List<Name>
 )
 
 @Entity
-data class MaleName(@PrimaryKey var maleName: String)
+data class Name(@PrimaryKey val name: String)
 
-@Entity
-data class FemaleName(@PrimaryKey
-                 var femaleName: String)
-
-@Entity
 data class Traits(
     val positiveTraits: List<PositiveTrait>,
     val negativeTraits: List<NegativeTrait>,
@@ -36,16 +30,16 @@ data class Traits(
 )
 
 @Entity
-data class PositiveTrait(@PrimaryKey var positiveTrait: String)
+data class PositiveTrait(@PrimaryKey val positiveTrait: String)
 
 @Entity
-data class NegativeTrait(@PrimaryKey var negativeTrait: String)
+data class NegativeTrait(@PrimaryKey val negativeTrait: String)
 
 @Entity
-data class NeutralTrait(@PrimaryKey var neutralTrait: String)
+data class NeutralTrait(@PrimaryKey val neutralTrait: String)
 
 @Entity
-data class Profession(@PrimaryKey var profession: String)
+data class Profession(@PrimaryKey val profession: String)
 
 @Entity
-data class Motivation(@PrimaryKey var motivation: String)
+data class Motivation(@PrimaryKey val motivation: String)
