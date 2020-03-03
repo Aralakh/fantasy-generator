@@ -1,45 +1,33 @@
 package com.example.fantasygenerator.models
 
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "characterOptions")
-data class CharacterOptions(
-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
-    @Embedded
-    val names: Names,
-    @Embedded
-    val traits: Traits,
-    val professions: List<Profession>,
-    val motivations: List<Motivation>
-)
-
+@Entity(tableName = "names", primaryKeys = ["name", "gender"])
 data class Names(
-    val maleNames: List<Name>,
-    val femaleNames: List<Name>
+    val name: Name,
+    val gender: Gender
 )
 
 @Entity
 data class Name(@PrimaryKey val name: String)
 
+@Entity(tableName = "traits", primaryKeys = ["trait", "type"])
 data class Traits(
-    val positiveTraits: List<PositiveTrait>,
-    val negativeTraits: List<NegativeTrait>,
-    val neutralTraits: List<NeutralTrait>
+    val trait: String,
+    val type: TraitType
 )
 
-@Entity
-data class PositiveTrait(@PrimaryKey val positiveTrait: String)
+enum class Gender {
+    FEMALE, MALE
+}
 
-@Entity
-data class NegativeTrait(@PrimaryKey val negativeTrait: String)
+enum class TraitType {
+    POSITIVE, NEGATIVE, NEUTRAL
+}
 
-@Entity
-data class NeutralTrait(@PrimaryKey val neutralTrait: String)
-
-@Entity
+@Entity(tableName = "professions")
 data class Profession(@PrimaryKey val profession: String)
 
-@Entity
+@Entity(tableName = "motivations")
 data class Motivation(@PrimaryKey val motivation: String)

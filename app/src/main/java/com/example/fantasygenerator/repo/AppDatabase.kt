@@ -7,11 +7,10 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.fantasygenerator.database.CharacterDao
 import com.example.fantasygenerator.database.CharacterOptionsDao
-import com.example.fantasygenerator.models.Character
-import com.example.fantasygenerator.models.CharacterOptions
+import com.example.fantasygenerator.models.*
 import com.example.fantasygenerator.utils.ConverterUtils
 
-@Database(entities = arrayOf(Character::class, CharacterOptions::class), version = 3, exportSchema = false)
+@Database(entities = arrayOf(Character::class, Traits::class, Profession::class, Motivation::class, Names::class), version = 3, exportSchema = false)
 @TypeConverters(ConverterUtils::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun characterDao() : CharacterDao

@@ -8,7 +8,10 @@ import com.example.fantasygenerator.models.*
 interface CharacterOptionsDao {
 
     @Insert
-    fun insertNames(names: Names)
+    fun insertMaleNames(names: List<Name>)
+
+    @Insert
+    fun insertFemaleNames(names: List<Name>)
 
     @Insert
     fun insertAllPositiveTraits(positiveTraits: List<PositiveTrait>)
@@ -88,24 +91,24 @@ interface CharacterOptionsDao {
     @Delete
     fun deleteMotivation(motivation: Motivation)
 
-    @Query("Select maleNames FROM characterOptions")
+    @Query("Select * FROM names WHERE gender = Gender.MALE")
     fun getMaleNames(): LiveData<List<Name>>
 
-    @Query("Select femaleNames FROM characterOptions")
+    @Query("Select * FROM names WHERE gender = Gender.FEMALE")
     fun getFemaleNames(): LiveData<List<Name>>
 
-    @Query("Select positiveTraits FROM characterOptions")
-    fun getPositiveTraits(): LiveData<List<PositiveTrait>>
+    @Query("Select * FROM traits WHERE type = TraitType.POSITIVE")
+    fun getPositiveTraits(): LiveData<List<Traits>>
 
-    @Query("Select negativeTraits FROM characterOptions")
-    fun getNegativeTraits(): LiveData<List<NegativeTrait>>
+    @Query("Select * FROM traits WHERE type = TraitType.NEGATIVE")
+    fun getNegativeTraits(): LiveData<List<Traits>>
 
-    @Query("Select neutralTraits FROM characterOptions")
-    fun getNeutralTraits(): LiveData<List<NeutralTrait>>
+    @Query("Select * FROM traits WHERE type = TraitType.NEUTRAL")
+    fun getNeutralTraits(): LiveData<List<Traits>>
 
-    @Query("Select professions FROM characterOptions")
+    @Query("Select * FROM professions")
     fun getProfessions(): LiveData<List<Profession>>
 
-    @Query("Select motivations FROM characterOptions")
+    @Query("Select * FROM motivations")
     fun getMotivations(): LiveData<List<Motivation>>
 }
