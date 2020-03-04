@@ -8,19 +8,10 @@ import com.example.fantasygenerator.models.*
 interface CharacterOptionsDao {
 
     @Insert
-    fun insertMaleNames(names: List<Name>)
+    fun insertNames(names: List<Name>)
 
     @Insert
-    fun insertFemaleNames(names: List<Name>)
-
-    @Insert
-    fun insertAllPositiveTraits(positiveTraits: List<PositiveTrait>)
-
-    @Insert
-    fun insertAllNegativeTraits(negativeTraits: List<NegativeTrait>)
-
-    @Insert
-    fun insertAllNeutralTraits(neutralTraits: List<NeutralTrait>)
+    fun insertAllTraits(traits: List<Trait>)
 
     @Insert
     fun insertAllMotivations(motivations: List<Motivation>)
@@ -29,19 +20,10 @@ interface CharacterOptionsDao {
     fun insertAllProfessions(professions: List<Profession>)
 
     @Insert
-    fun insertMaleName(maleName: Name)
+    fun insertName(name: Name)
 
     @Insert
-    fun insertFemaleName(femaleName: Name)
-
-    @Insert
-    fun insertPositiveTrait(positiveTrait: PositiveTrait)
-
-    @Insert
-    fun insertNegativeTrait(negativeTrait: NegativeTrait)
-
-    @Insert
-    fun insertNeutralTrait(neutralTrait: NeutralTrait)
+    fun insertTrait(trait: Trait)
 
     @Insert
     fun insertMotivation(motivation: Motivation)
@@ -50,19 +32,10 @@ interface CharacterOptionsDao {
     fun insertProfession(profession: Profession)
 
     @Update
-    fun updateMaleName(maleName: Name)
+    fun updateName(name: Name)
 
     @Update
-    fun updateFemaleName(femaleName: Name)
-
-    @Update
-    fun updatePositiveTrait(positiveTrait: PositiveTrait)
-
-    @Update
-    fun updateNegativeTrait(negativeTrait: NegativeTrait)
-
-    @Update
-    fun updateNeutralTrait(neutralTrait: NeutralTrait)
+    fun updateTrait(trait:Trait)
 
     @Update
     fun updateProfession(profession: Profession)
@@ -71,19 +44,10 @@ interface CharacterOptionsDao {
     fun updateMotivation(motivation: Motivation)
 
     @Delete
-    fun deleteMaleName(maleName: Name)
+    fun deleteName(name: Name)
 
     @Delete
-    fun deleteFemaleName(femaleName: Name)
-
-    @Delete
-    fun deletePositiveTrait(positiveTrait: PositiveTrait)
-
-    @Delete
-    fun deleteNegativeTrait(negativeTrait: NegativeTrait)
-
-    @Delete
-    fun deleteNeutralTrait(neutralTrait: NeutralTrait)
+    fun deleteTrait(trait: Trait)
 
     @Delete
     fun deleteProfession(profession: Profession)
@@ -91,20 +55,24 @@ interface CharacterOptionsDao {
     @Delete
     fun deleteMotivation(motivation: Motivation)
 
-    @Query("Select * FROM names WHERE gender = Gender.MALE")
-    fun getMaleNames(): LiveData<List<Name>>
+    @Query("Select * FROM names WHERE gender = :gender")
+    fun getNamesByGender(gender: Gender): LiveData<List<Name>>
 
-    @Query("Select * FROM names WHERE gender = Gender.FEMALE")
-    fun getFemaleNames(): LiveData<List<Name>>
+    fun getMaleNames(): LiveData<List<Name>> = getNamesByGender(Gender.MALE)
 
-    @Query("Select * FROM traits WHERE type = TraitType.POSITIVE")
-    fun getPositiveTraits(): LiveData<List<Traits>>
+    fun getFemaleNames(): LiveData<List<Name>> = getNamesByGender(Gender.FEMALE)
 
-    @Query("Select * FROM traits WHERE type = TraitType.NEGATIVE")
-    fun getNegativeTraits(): LiveData<List<Traits>>
+    @Query("Select * FROM names")
+    fun getAllNames(): LiveData<List<Name>>
 
-    @Query("Select * FROM traits WHERE type = TraitType.NEUTRAL")
-    fun getNeutralTraits(): LiveData<List<Traits>>
+    @Query("Select * FROM trait WHERE type = :traitType")
+    fun getTraitsByType(traitType: TraitType): LiveData<List<Trait>>
+
+    fun getPositiveTraits(): LiveData<List<Trait>> = getTraitsByType(TraitType.POSITIVE)
+
+    fun getNegativeTraits(): LiveData<List<Trait>> = getTraitsByType(TraitType.NEGATIVE)
+
+    fun getNeutralTraits(): LiveData<List<Trait>> = getTraitsByType(TraitType.NEUTRAL)
 
     @Query("Select * FROM professions")
     fun getProfessions(): LiveData<List<Profession>>

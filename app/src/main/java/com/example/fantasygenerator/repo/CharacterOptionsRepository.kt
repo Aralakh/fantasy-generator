@@ -7,14 +7,15 @@ import kotlinx.coroutines.withContext
 
 class CharacterOptionsRepository private constructor(private val characterOptionsDao: CharacterOptionsDao) {
 
-    suspend fun addNames(names: Names) = withContext(Dispatchers.IO) { characterOptionsDao.insertNames(names) }
-    suspend fun addNeutralTraits(neutralTraits: List<NeutralTrait>) = withContext(Dispatchers.IO) { characterOptionsDao.insertAllNeutralTraits(neutralTraits) }
-    suspend fun addNegativeTraits(negativeTraits: List<NegativeTrait>) = withContext(Dispatchers.IO) { characterOptionsDao.insertAllNegativeTraits(negativeTraits) }
-    suspend fun addPositiveTraits(positiveTraits: List<PositiveTrait>) = withContext(Dispatchers.IO) { characterOptionsDao.insertAllPositiveTraits(positiveTraits) }
+    suspend fun addNames(names: List<Name>) =  withContext(Dispatchers.IO) { characterOptionsDao.insertNames(names)}
+    suspend fun addTraits(traits: List<Trait>) = withContext(Dispatchers.IO) { characterOptionsDao.insertAllTraits(traits) }
     suspend fun addMotivations(motivations: List<Motivation>) = withContext(Dispatchers.IO) { characterOptionsDao.insertAllMotivations(motivations) }
     suspend fun addProfessions(professions: List<Profession>) = withContext(Dispatchers.IO) { characterOptionsDao.insertAllProfessions(professions) }
-    fun getFemaleNames() = characterOptionsDao.getFemaleNames()
-    fun getMaleNames() = characterOptionsDao.getMaleNames()
+    suspend fun getFemaleNames() = withContext(Dispatchers.IO) { characterOptionsDao.getFemaleNames() }
+    suspend fun getMaleNames() = withContext(Dispatchers.IO) { characterOptionsDao.getMaleNames() }
+    suspend fun getPositiveTraits() = withContext(Dispatchers.IO) { characterOptionsDao.getPositiveTraits() }
+    suspend fun getNegativeTraits() = withContext(Dispatchers.IO) { characterOptionsDao.getNegativeTraits() }
+    suspend fun getNeutralTraits() = withContext(Dispatchers.IO) { characterOptionsDao.getNeutralTraits() }
 
     companion object {
         @Volatile private var instance: CharacterOptionsRepository? = null
@@ -24,5 +25,4 @@ class CharacterOptionsRepository private constructor(private val characterOption
                 instance ?: CharacterOptionsRepository(characterOptionsDao).also { instance = it }
             }
     }
-
 }

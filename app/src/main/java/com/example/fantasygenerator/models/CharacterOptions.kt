@@ -2,9 +2,10 @@ package com.example.fantasygenerator.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.lang.IllegalArgumentException
 
 @Entity(tableName = "names", primaryKeys = ["name", "gender"])
-data class Names(
+data class Names (
     val name: Name,
     val gender: Gender
 )
@@ -12,18 +13,44 @@ data class Names(
 @Entity
 data class Name(@PrimaryKey val name: String)
 
-@Entity(tableName = "traits", primaryKeys = ["trait", "type"])
-data class Traits(
+@Entity(tableName = "trait", primaryKeys = ["trait", "type"])
+data class Trait (
     val trait: String,
     val type: TraitType
 )
 
-enum class Gender {
-    FEMALE, MALE
+@Entity
+enum class Gender (val gender: String) {
+    FEMALE("female"),
+    MALE("male"),
+    OTHER("other");
+
+    companion object {
+        fun getGenderByString(gender: String): Gender {
+            return try {
+                valueOf(gender.toUpperCase())
+            } catch (exception: IllegalArgumentException) {
+                OTHER
+            }
+        }
+    }
 }
 
-enum class TraitType {
-    POSITIVE, NEGATIVE, NEUTRAL
+@Entity
+enum class TraitType (val traitType: String) {
+    POSITIVE("positive"),
+    NEGATIVE("negative"),
+    NEUTRAL("neutral");
+
+    companion object {
+        fun getTraitTypeByString(traitType: String): TraitType {
+            return try {
+                valueOf(traitType.toUpperCase())
+            } catch (exception: IllegalArgumentException) {
+                NEUTRAL
+            }
+        }
+    }
 }
 
 @Entity(tableName = "professions")
