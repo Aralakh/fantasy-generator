@@ -23,11 +23,11 @@ open class JsonFileUtil {
 
     companion object {
 
-        fun loadNames(context: Context): Names? {
+        fun loadNames(context: Context): List<Names> {
             val string = JsonFileUtil().loadJsonFile("assets/names.json", context)
-            var names: Names? = null
+            var names: List<Names> = emptyList()
             string?.run {
-                names = Gson().fromJson<Names>(this)
+                names = Gson().fromJson<List<Names>>(this)
             }
 
             return names

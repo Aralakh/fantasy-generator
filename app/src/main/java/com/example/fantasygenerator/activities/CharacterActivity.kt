@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.fantasygenerator.R
 import com.example.fantasygenerator.fragments.CharacterListFragment
 import com.example.fantasygenerator.models.Character
+import com.example.fantasygenerator.models.CharacterTraits
 import com.example.fantasygenerator.models.Name
 import com.example.fantasygenerator.repo.AppDatabase
 import com.example.fantasygenerator.repo.CharacterOptionsRepository
@@ -18,39 +19,41 @@ class CharacterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-//        var character = Character()
         val characterRepository = CharacterRepository.getInstance(
             AppDatabase.getInstance(this).characterDao()
         )
         val uiScope = CoroutineScope(Dispatchers.IO)
         uiScope.launch { loadDatabaseData() }
 
-        var character = Character()
+        var character = Character(traits = CharacterTraits())
         val characterOptionsRepository = CharacterOptionsRepository
             .getInstance(
                 AppDatabase.getInstance(this@CharacterActivity)
                     .characterOptionsDao()
             )
-        val names: List<Name>? = characterOptionsRepository.getFemaleNames().value
-        names?.forEach {
+        var names: List<Name>? = emptyList()
 
-            it.name.startsWith("B")
-                character.name = it.name
+        uiScope.launch {
+             names = characterOptionsRepository.getFemaleNames().value
         }
+            names?.forEach {
 
-        GlobalScope.launch {
-            runBlocking {
-                characterRepository.addCharacter(character)
-                val fragment = CharacterListFragment()
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, fragment)
-                    .addToBackStack(fragment.tag)
-                    .commit()
+                it.name.startsWith("B")
+                character.name = it
+            }
+
+            GlobalScope.launch {
+                runBlocking {
+                    characterRepository.addCharacter(character)
+                    val fragment = CharacterListFragment()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, fragment)
+                        .addToBackStack(fragment.tag)
+                        .commit()
+                }
             }
         }
-    }
 
     private suspend fun loadDatabaseData() = withContext(Dispatchers.IO) {
         val names = JsonFileUtil.loadNames(this@CharacterActivity)
@@ -60,7 +63,7 @@ class CharacterActivity : AppCompatActivity() {
                     AppDatabase.getInstance(this@CharacterActivity)
                         .characterOptionsDao()
                 )
-            characterOptionsRepository.addNames(names)
+            characterOptionsRepository.addNames(this)
         }
     }
 }

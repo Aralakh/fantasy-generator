@@ -42,40 +42,6 @@ class ConverterUtils {
         return gson.fromJson(data, listType)
     }
 
-
-    @TypeConverter
-    fun positiveTraitsToString(positiveTraits: List<Trait>) = gson.toJson(positiveTraits)
-
-    @TypeConverter
-    fun stringToPositiveTraits(data: String): List<Trait> {
-        if(data == null)
-            return Collections.emptyList()
-        val listType = object: TypeToken<List<Trait>>() {}.type
-        return gson.fromJson(data, listType)
-    }
-
-    @TypeConverter
-    fun negativeTraitsToString(negativeTraits: List<Trait>) = gson.toJson(negativeTraits)
-
-    @TypeConverter
-    fun stringToNegativeTraits(data: String): List<Trait> {
-        if(data == null)
-            return Collections.emptyList()
-        val listType = object: TypeToken<List<Trait>>() {}.type
-        return gson.fromJson(data, listType)
-    }
-
-    @TypeConverter
-    fun neutralTraitsToString(neutralTraits: List<Trait>) = gson.toJson(neutralTraits)
-
-    @TypeConverter
-    fun stringToNeutralTraits(data: String): List<Trait> {
-        if(data == null)
-            return Collections.emptyList()
-        val listType = object: TypeToken<List<Trait>>() {}.type
-        return gson.fromJson(data, listType)
-    }
-
     @TypeConverter
     fun genderToString(gender: Gender) = gender.toString()
 

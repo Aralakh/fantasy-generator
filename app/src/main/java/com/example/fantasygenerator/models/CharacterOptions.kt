@@ -5,13 +5,10 @@ import androidx.room.PrimaryKey
 import java.lang.IllegalArgumentException
 
 @Entity(tableName = "names", primaryKeys = ["name", "gender"])
-data class Names (
-    val name: Name,
+data class Name (
+    val name: String,
     val gender: Gender
 )
-
-@Entity
-data class Name(@PrimaryKey val name: String)
 
 @Entity(tableName = "trait", primaryKeys = ["trait", "type"])
 data class Trait (
