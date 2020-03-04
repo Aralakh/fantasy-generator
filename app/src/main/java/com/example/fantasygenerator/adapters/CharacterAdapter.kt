@@ -45,7 +45,7 @@ class CharacterAdapter(private val context: Context) : RecyclerView.Adapter<Char
         }
 
         fun bind(character: Character) = with(itemView) {
-            object_name.text = character.name
+            object_name.text = character.name.name
             setOnClickListener {
                 adapterOnClickListener?.itemClicked(character)
             }

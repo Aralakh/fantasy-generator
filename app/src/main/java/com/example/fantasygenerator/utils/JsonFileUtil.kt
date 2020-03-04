@@ -1,7 +1,7 @@
 package com.example.fantasygenerator.utils
 
 import android.content.Context
-import com.example.fantasygenerator.models.Names
+import com.example.fantasygenerator.models.Name
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.IOException
@@ -23,11 +23,11 @@ open class JsonFileUtil {
 
     companion object {
 
-        fun loadNames(context: Context): List<Names> {
-            val string = JsonFileUtil().loadJsonFile("assets/names.json", context)
-            var names: List<Names> = emptyList()
+        fun loadNames(context: Context): List<Name> {
+            val string = JsonFileUtil().loadJsonFile("names.json", context)
+            var names: List<Name> = emptyList()
             string?.run {
-                names = Gson().fromJson<List<Names>>(this)
+                names = Gson().fromJson<List<Name>>(this)
             }
 
             return names

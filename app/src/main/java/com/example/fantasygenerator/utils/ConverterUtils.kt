@@ -43,14 +43,51 @@ class ConverterUtils {
     }
 
     @TypeConverter
-    fun genderToString(gender: Gender) = gender.toString()
+    fun traitsToString(traits: List<Trait>) = gson.toJson(traits)
 
     @TypeConverter
-    fun stringToGender(data: String) = Gender.getGenderByString(data)
+    fun stringToTraits(data: String): List<Trait> {
+        if(data == null)
+            return Collections.emptyList()
+        val listType = object: TypeToken<List<Trait>>() {}.type
+        return gson.fromJson(data, listType)
+    }
 
     @TypeConverter
-    fun traitsToString(traits: TraitType) = traits.toString()
+    fun fromTrait(trait: Trait) = "${trait.trait},${trait.type.traitType}"
 
     @TypeConverter
-    fun stringToTraits(data: String) = TraitType.getTraitTypeByString(data)
+    fun toTrait(value: String): Trait {
+        val (trait, type) = value.split(",")
+        return Trait(trait, TraitType.getTraitTypeByString(type))
+    }
+
+    @TypeConverter
+    fun fromName(name: Name) = "${name.name},${name.gender.gender}"
+
+    @TypeConverter
+    fun toName(value: String): Name {
+        val (name, gender) = value.split(",")
+        return Name(name, Gender.getGenderByString(gender))
+    }
+
+    @TypeConverter
+    fun fromGender(value: Gender) = value.gender
+
+    @TypeConverter
+    fun toGender(value: String) = Gender.getGenderByString(value)
+
+    @TypeConverter
+    fun fromTraitType(value: TraitType) = value.traitType
+
+    @TypeConverter
+    fun toTraitType(value: String) = TraitType.getTraitTypeByString(value)
+
+//    @TypeConverter
+//    fun characterTraitsToString(traits: CharacterTraits) = gson.toJson(traits)
+//
+//    @TypeConverter
+//    fun stringToCharacterTraits(data: String): CharacterTraits {
+//
+//    }
 }

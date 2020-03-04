@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.fantasygenerator.R
 import com.example.fantasygenerator.fragments.CharacterListFragment
 import com.example.fantasygenerator.models.Character
-import com.example.fantasygenerator.models.CharacterTraits
 import com.example.fantasygenerator.models.Name
 import com.example.fantasygenerator.repo.AppDatabase
 import com.example.fantasygenerator.repo.CharacterOptionsRepository
@@ -25,7 +24,7 @@ class CharacterActivity : AppCompatActivity() {
         val uiScope = CoroutineScope(Dispatchers.IO)
         uiScope.launch { loadDatabaseData() }
 
-        var character = Character(traits = CharacterTraits())
+        var character = Character()
         val characterOptionsRepository = CharacterOptionsRepository
             .getInstance(
                 AppDatabase.getInstance(this@CharacterActivity)

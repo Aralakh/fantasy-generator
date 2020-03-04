@@ -27,7 +27,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         //this can be updated to inject data into the database at creation from json files
         private fun buildDatabase(context: Context): AppDatabase {
-            return Room.databaseBuilder(context, AppDatabase::class.java, "Characters.db").build()
+            return Room.databaseBuilder(context, AppDatabase::class.java, "Characters.db").fallbackToDestructiveMigration().build()
         }
     }
 }

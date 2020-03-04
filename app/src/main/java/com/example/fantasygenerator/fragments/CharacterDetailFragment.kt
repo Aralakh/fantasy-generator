@@ -48,12 +48,12 @@ class CharacterDetailFragment : Fragment() {
                     .get(CharacterDetailViewModel::class.java)
 
                 characterDetailViewModel.character.observe(this.viewLifecycleOwner, Observer { character ->
-                    name.text = character.name
+                    name.text = character.name.name
                     motivation.text = character.motivation
                     profession.text = character.profession
-                    positiveTrait.text = character.positiveTrait
-                    negativeTrait.text = character.negativeTrait
-                    neutralTrait.text = character.neutralTrait
+                    positiveTrait.text = character.positiveTrait.trait
+                    negativeTrait.text = character.negativeTrait.trait
+                    neutralTrait.text = character.neutralTrait.trait
                 })
             }
         }
