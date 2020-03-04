@@ -82,12 +82,4 @@ class ConverterUtils {
 
     @TypeConverter
     fun toTraitType(value: String) = TraitType.getTraitTypeByString(value)
-
-//    @TypeConverter
-//    fun characterTraitsToString(traits: CharacterTraits) = gson.toJson(traits)
-//
-//    @TypeConverter
-//    fun stringToCharacterTraits(data: String): CharacterTraits {
-//
-//    }
 }
