@@ -16,6 +16,8 @@ class CharacterOptionsRepository private constructor(private val characterOption
     suspend fun getPositiveTraits() = withContext(Dispatchers.IO) { characterOptionsDao.getPositiveTraits() }
     suspend fun getNegativeTraits() = withContext(Dispatchers.IO) { characterOptionsDao.getNegativeTraits() }
     suspend fun getNeutralTraits() = withContext(Dispatchers.IO) { characterOptionsDao.getNeutralTraits() }
+    suspend fun getAllNames() = withContext(Dispatchers.IO) { characterOptionsDao.getAllNames() }
+    suspend fun addName(name: Name) = withContext(Dispatchers.IO) { characterOptionsDao.insertName(name) }
 
     companion object {
         @Volatile private var instance: CharacterOptionsRepository? = null

@@ -8,27 +8,27 @@ import com.example.fantasygenerator.models.*
 interface CharacterOptionsDao {
 
     @Insert
-    fun insertNames(names: List<Name>)
+    fun insertNames(names: List<Name>): List<Long>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAllTraits(traits: List<Trait>)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAllMotivations(motivations: List<Motivation>)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAllProfessions(professions: List<Profession>)
 
     @Insert
     fun insertName(name: Name)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertTrait(trait: Trait)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertMotivation(motivation: Motivation)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertProfession(profession: Profession)
 
     @Update

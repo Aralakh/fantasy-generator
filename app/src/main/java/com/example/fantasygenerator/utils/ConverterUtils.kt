@@ -54,20 +54,20 @@ class ConverterUtils {
     }
 
     @TypeConverter
-    fun fromTrait(trait: Trait) = "${trait.trait},${trait.type.traitType}"
+    fun fromTrait(trait: Trait) = "${trait.trait},${trait.type.traitType.toUpperCase()}"
 
     @TypeConverter
     fun toTrait(value: String): Trait {
-        val (trait, type) = value.split(",")
+        val ( trait, type) = value.split(",")
         return Trait(trait, TraitType.getTraitTypeByString(type))
     }
 
     @TypeConverter
-    fun fromName(name: Name) = "${name.name},${name.gender.gender}"
+    fun fromName(name: Name) = "${name.name},${name.gender.gender.toUpperCase()}"
 
     @TypeConverter
     fun toName(value: String): Name {
-        val (name, gender) = value.split(",")
+        val ( name, gender) = value.split(",")
         return Name(name, Gender.getGenderByString(gender))
     }
 

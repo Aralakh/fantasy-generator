@@ -1,0 +1,22 @@
+[
+  {
+    "id": "11111",
+    "gender": "MALE",
+    "name": "Alessandro"
+  },
+  {
+    "id": "2222",
+    "gender": "MALE",
+    "name": "Santiago"
+  },
+  {
+    "id": "33333",
+    "gender": "MALE",
+    "name": "Matías"
+  },
+  {
+    "id": "44444",
+    "gender": "MALE",
+    "name": "Diego"
+  }
+]

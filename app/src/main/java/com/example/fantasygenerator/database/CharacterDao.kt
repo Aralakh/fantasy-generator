@@ -8,7 +8,7 @@ import com.example.fantasygenerator.models.Character
 interface CharacterDao {
 
     @Insert
-    fun insertCharacter(character: Character)
+    fun insertCharacter(character: Character): Long
 
     @Insert
     fun insertAllCharacters(vararg character: Character)

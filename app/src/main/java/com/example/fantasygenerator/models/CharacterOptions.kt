@@ -1,16 +1,24 @@
 package com.example.fantasygenerator.models
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import java.lang.IllegalArgumentException
+import java.util.*
 
-@Entity(tableName = "names", primaryKeys = ["name", "gender"])
+@Entity(
+    tableName = "names",
+    primaryKeys = ["name", "gender"]
+)
 data class Name (
     val name: String,
     val gender: Gender
 )
 
-@Entity(tableName = "trait", primaryKeys = ["trait", "type"])
+@Entity(
+    tableName = "trait",
+    primaryKeys = ["trait", "type"]
+)
 data class Trait (
     val trait: String,
     val type: TraitType

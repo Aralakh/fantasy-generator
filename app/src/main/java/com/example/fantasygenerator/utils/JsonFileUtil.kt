@@ -9,6 +9,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.FileOutputStream
 import java.io.IOException
+import java.util.*
 
 open class JsonFileUtil {
     fun loadJsonFile(filePath: String, context: Context): String? {
@@ -67,7 +68,7 @@ open class JsonFileUtil {
         }
 
         fun loadNames(context: Context): List<Name> {
-            val string = JsonFileUtil().loadJsonFile("newNames.json", context)
+            val string = JsonFileUtil().loadJsonFile("names2.json", context)
             var names: List<Name> = emptyList()
             string?.run {
                 names = Gson().fromJson<List<Name>>(this)

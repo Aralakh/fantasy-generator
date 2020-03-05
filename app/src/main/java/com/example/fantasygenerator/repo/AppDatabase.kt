@@ -10,7 +10,7 @@ import com.example.fantasygenerator.database.CharacterOptionsDao
 import com.example.fantasygenerator.models.*
 import com.example.fantasygenerator.utils.ConverterUtils
 
-@Database(entities = [Character::class, Trait::class, Profession::class, Motivation::class, Name::class], version = 4, exportSchema = false)
+@Database(entities = [Character::class, Trait::class, Profession::class, Motivation::class, Name::class], version = 7, exportSchema = false)
 @TypeConverters(ConverterUtils::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun characterDao() : CharacterDao
