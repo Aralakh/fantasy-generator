@@ -7,8 +7,8 @@ import com.example.fantasygenerator.models.Character
 @Dao
 interface CharacterDao {
 
-    @Insert
-    fun insertCharacter(character: Character): Long
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertCharacter(character: Character)
 
     @Insert
     fun insertAllCharacters(vararg character: Character)

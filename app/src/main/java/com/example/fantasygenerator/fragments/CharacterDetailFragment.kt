@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.fantasygenerator.R
-import com.example.fantasygenerator.repo.AppDatabase
+import com.example.fantasygenerator.database.AppDatabase
 import com.example.fantasygenerator.repo.CharacterRepository
 import com.example.fantasygenerator.viewModels.CharacterDetailViewModel
 import com.example.fantasygenerator.viewModels.CharacterDetailViewModelFactory

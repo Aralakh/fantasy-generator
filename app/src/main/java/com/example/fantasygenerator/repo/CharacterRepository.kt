@@ -7,8 +7,7 @@ import kotlinx.coroutines.withContext
 
 class CharacterRepository private constructor(private val characterDao: CharacterDao) {
 
-    suspend fun addCharacter(character: Character) = withContext(Dispatchers.IO) {
-        characterDao.insertCharacter(character) }
+        fun addCharacter(character: Character) = characterDao.insertCharacter(character)
 
         fun addMultipleCharacters(character: List<Character>) = characterDao.insertAllCharacters(*character.toTypedArray())
 

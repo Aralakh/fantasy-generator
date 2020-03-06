@@ -7,20 +7,20 @@ import kotlinx.coroutines.withContext
 
 class CharacterOptionsRepository private constructor(private val characterOptionsDao: CharacterOptionsDao) {
 
-    suspend fun addNames(names: List<Name>) =  withContext(Dispatchers.IO) { characterOptionsDao.insertNames(names)}
-    suspend fun addTraits(traits: List<Trait>) = withContext(Dispatchers.IO) { characterOptionsDao.insertAllTraits(traits) }
-    suspend fun addMotivations(motivations: List<Motivation>) = withContext(Dispatchers.IO) { characterOptionsDao.insertAllMotivations(motivations) }
-    suspend fun addProfessions(professions: List<Profession>) = withContext(Dispatchers.IO) { characterOptionsDao.insertAllProfessions(professions) }
-    suspend fun getFemaleNames() = withContext(Dispatchers.IO) { characterOptionsDao.getFemaleNames() }
-    suspend fun getMaleNames() = withContext(Dispatchers.IO) { characterOptionsDao.getMaleNames() }
-    suspend fun getPositiveTraits() = withContext(Dispatchers.IO) { characterOptionsDao.getPositiveTraits() }
-    suspend fun getNegativeTraits() = withContext(Dispatchers.IO) { characterOptionsDao.getNegativeTraits() }
-    suspend fun getNeutralTraits() = withContext(Dispatchers.IO) { characterOptionsDao.getNeutralTraits() }
-    suspend fun getAllNames() = withContext(Dispatchers.IO) { characterOptionsDao.getAllNames() }
-    suspend fun addName(name: Name) = withContext(Dispatchers.IO) { characterOptionsDao.insertName(name) }
-    suspend fun addTrait(trait: Trait) = withContext(Dispatchers.IO) { characterOptionsDao.insertTrait(trait) }
-    suspend fun getAllProfessions() = withContext(Dispatchers.IO) { characterOptionsDao.getProfessions() }
-    suspend fun getAllMotivations() = withContext(Dispatchers.IO) { characterOptionsDao.getMotivations() }
+    fun addNames(names: List<Name>) =  characterOptionsDao.insertNames(names)
+    fun addTraits(traits: List<Trait>) = characterOptionsDao.insertAllTraits(traits)
+    fun addMotivations(motivations: List<Motivation>) = characterOptionsDao.insertAllMotivations(motivations)
+    fun addProfessions(professions: List<Profession>) =  characterOptionsDao.insertAllProfessions(professions)
+    fun getFemaleNames() = characterOptionsDao.getFemaleNames()
+    fun getMaleNames() = characterOptionsDao.getMaleNames()
+    fun getPositiveTraits() = characterOptionsDao.getPositiveTraits()
+    fun getNegativeTraits() =  characterOptionsDao.getNegativeTraits()
+    fun getNeutralTraits() =  characterOptionsDao.getNeutralTraits()
+    fun getAllNames() = characterOptionsDao.getAllNames()
+    fun addName(name: Name) = characterOptionsDao.insertName(name)
+    fun addTrait(trait: Trait) = characterOptionsDao.insertTrait(trait)
+    fun getAllProfessions() = characterOptionsDao.getProfessions()
+    fun getAllMotivations() =  characterOptionsDao.getMotivations()
 
     companion object {
         @Volatile private var instance: CharacterOptionsRepository? = null

@@ -13,7 +13,7 @@ import com.example.fantasygenerator.R
 import com.example.fantasygenerator.adapters.CharacterAdapter
 import com.example.fantasygenerator.interfaces.AdapterOnClickListener
 import com.example.fantasygenerator.models.Character
-import com.example.fantasygenerator.repo.AppDatabase
+import com.example.fantasygenerator.database.AppDatabase
 import com.example.fantasygenerator.repo.CharacterRepository
 import com.example.fantasygenerator.viewModels.CharacterListViewModel
 import com.example.fantasygenerator.viewModels.CharacterListViewModelFactory

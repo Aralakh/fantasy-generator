@@ -1,12 +1,10 @@
-package com.example.fantasygenerator.repo
+package com.example.fantasygenerator.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.fantasygenerator.database.CharacterDao
-import com.example.fantasygenerator.database.CharacterOptionsDao
 import com.example.fantasygenerator.models.*
 import com.example.fantasygenerator.utils.ConverterUtils
 
