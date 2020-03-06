@@ -54,6 +54,18 @@ class ConverterUtils {
     }
 
     @TypeConverter
+    fun fromMotivation(motivation: Motivation) = motivation.motivation
+
+    @TypeConverter
+    fun toMotivation(value: String) = Motivation(value)
+
+    @TypeConverter
+    fun fromProfession(profession: Profession) = profession.profession
+
+    @TypeConverter
+    fun toProfession(value: String) = Profession(value)
+
+    @TypeConverter
     fun fromTrait(trait: Trait) = "${trait.trait},${trait.type.traitType.toUpperCase()}"
 
     @TypeConverter

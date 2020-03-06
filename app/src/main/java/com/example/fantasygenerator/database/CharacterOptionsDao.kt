@@ -10,25 +10,25 @@ interface CharacterOptionsDao {
     @Insert
     fun insertNames(names: List<Name>): List<Long>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     fun insertAllTraits(traits: List<Trait>)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     fun insertAllMotivations(motivations: List<Motivation>)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     fun insertAllProfessions(professions: List<Profession>)
 
     @Insert
-    fun insertName(name: Name)
+    fun insertName(name: Name): Long
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     fun insertTrait(trait: Trait)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     fun insertMotivation(motivation: Motivation)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     fun insertProfession(profession: Profession)
 
     @Update

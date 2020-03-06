@@ -10,9 +10,10 @@ data class Character (@PrimaryKey val id: String = UUID.randomUUID().toString(),
                       var positiveTrait: Trait = Trait("Brave", TraitType.POSITIVE),
                       var negativeTrait: Trait = Trait("Alcoholic", TraitType.NEGATIVE),
                       var neutralTrait: Trait = Trait("Decisive", TraitType.NEUTRAL),
-                      var motivation: String = "Avenge a fallen friend",
-                      var profession: String = "Adventurer",
-                      var notes: String = ""){
+                      var motivation: Motivation = Motivation("Avenge a fallen friend"),
+                      var profession: Profession = Profession("Adventurer"),
+                      var notes: String = "")
+{
 
     override fun toString() = name.name
 }

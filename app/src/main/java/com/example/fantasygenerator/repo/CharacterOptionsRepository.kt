@@ -18,6 +18,9 @@ class CharacterOptionsRepository private constructor(private val characterOption
     suspend fun getNeutralTraits() = withContext(Dispatchers.IO) { characterOptionsDao.getNeutralTraits() }
     suspend fun getAllNames() = withContext(Dispatchers.IO) { characterOptionsDao.getAllNames() }
     suspend fun addName(name: Name) = withContext(Dispatchers.IO) { characterOptionsDao.insertName(name) }
+    suspend fun addTrait(trait: Trait) = withContext(Dispatchers.IO) { characterOptionsDao.insertTrait(trait) }
+    suspend fun getAllProfessions() = withContext(Dispatchers.IO) { characterOptionsDao.getProfessions() }
+    suspend fun getAllMotivations() = withContext(Dispatchers.IO) { characterOptionsDao.getMotivations() }
 
     companion object {
         @Volatile private var instance: CharacterOptionsRepository? = null

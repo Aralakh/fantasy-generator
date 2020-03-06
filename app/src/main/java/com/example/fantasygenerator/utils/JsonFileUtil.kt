@@ -2,9 +2,7 @@ package com.example.fantasygenerator.utils
 
 import android.content.Context
 import android.util.Log
-import com.example.fantasygenerator.models.Gender
-import com.example.fantasygenerator.models.Name
-import com.example.fantasygenerator.models.OldNames
+import com.example.fantasygenerator.models.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.FileOutputStream
@@ -68,13 +66,32 @@ open class JsonFileUtil {
         }
 
         fun loadNames(context: Context): List<Name> {
-            val string = JsonFileUtil().loadJsonFile("names2.json", context)
+            val string = JsonFileUtil().loadJsonFile("newNames.json", context)
             var names: List<Name> = emptyList()
             string?.run {
                 names = Gson().fromJson<List<Name>>(this)
             }
 
             return names
+        }
+
+        fun loadMotivations(context: Context): List<Motivation> {
+            val string = JsonFileUtil().loadJsonFile("motivations.json", context)
+            var motivations: List<Motivation> = emptyList()
+            string?.run {
+                motivations = Gson().fromJson<List<Motivation>>(this)
+            }
+
+            return motivations
+        }
+
+        fun loadProfessions(context: Context): List<Profession> {
+            val string = JsonFileUtil().loadJsonFile("professions.json", context)
+            var professions: List<Profession> = emptyList()
+            string?.run {
+                professions = Gson().fromJson<List<Profession>>(this)
+            }
+            return professions
         }
 
         inline fun <reified T> Gson.fromJson(json: String) =

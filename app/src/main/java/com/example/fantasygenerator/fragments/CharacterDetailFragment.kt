@@ -49,8 +49,8 @@ class CharacterDetailFragment : Fragment() {
 
                 characterDetailViewModel.character.observe(this.viewLifecycleOwner, Observer { character ->
                     name.text = character.name.name
-                    motivation.text = character.motivation
-                    profession.text = character.profession
+                    motivation.text = character.motivation.motivation
+                    profession.text = character.profession.profession
                     positiveTrait.text = character.positiveTrait.trait
                     negativeTrait.text = character.negativeTrait.trait
                     neutralTrait.text = character.neutralTrait.trait
