@@ -10,4 +10,6 @@
 
     <!-- button labels -->
     <string name="editButton">Edit</string>
+    <string name="new_character">New Character</string>
+    <string name="characters">Characters</string>
 </resources>
