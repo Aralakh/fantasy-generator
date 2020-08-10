@@ -1,0 +1,682 @@
+[
+  {
+    "trait": "Adventurous",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Alert",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Charming",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Clever",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Courageous",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Creative",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Cheerful",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Clear-headed",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Courteous",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Cultured",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Curious",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Daring",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Decisive",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Disciplined",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Efficient",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Eloquent",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Flexible",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Generous",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Hardworking",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Helpful",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Honorable",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Humorous",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Just",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Leader",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Modest",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Objective",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Practical",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Principled",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Rational",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Responsible",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Righteous",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Clean",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Farsighted",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Forgiving",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Gallant",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Humble",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Loyal",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Mature",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Perceptive",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Persuasive",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Scholarly",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Selfless",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Steadfast",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Tasteful",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Thorough",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Tolerant",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Well-read",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Youthful",
+    "type": "POSITIVE"
+  },
+  {
+    "trait": "Abrasive",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Aggressive",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Aimless",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Amoral",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Apathetic",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Argumentative",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Arrogant",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Biased",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Childish",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Clumsy",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Complacent",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Compulsive",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Cowardly",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Crass",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Cynical",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Devious",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Deceptive",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Dishonorable",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Dogmatic",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Domineering",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Egocentric",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Erratic",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Envious",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Fanatical",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Fawning",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Fearful",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Frivolous",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Fatalistic",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Greedy",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Gullible",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Hateful",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Haughty",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Ignorant",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Impatient",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Impractical",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Impulsive",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Incurious",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Indulgent",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Insecure",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Irrational",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Irresponsible",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Lazy",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Malicious",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Mannerless",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Messy",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Narcissistic",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Neglectful",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Nihilistic",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Obsessive",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Opportunistic",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Paranoid",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Pedantic",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Perfectionist",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Perverse",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Petty",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Pompous",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Power-hungry",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Predatory",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Proud",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Puritanical",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Resentful",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Rude",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Ruthless",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Sanctimonious",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Secretive",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Self-indulgent",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Selfish",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Single-minded",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Sloppy",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Shortsighted",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Superficial",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Subservient",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Tasteless",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Uncharitable",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Undisciplined",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Unimaginative",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Unreliable",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Vacuous",
+    "type": "NEGATIVE"
+  },
+  {
+    "trait": "Absentminded",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Adaptable",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Athletic",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Attractive",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Codependent",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Competitive",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Confident",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Considerate",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Dependable",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Distrustful",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Emotional",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Energetic",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Enigmatic",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Farsighted",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Formal",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Frugal",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Glamorous",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Idealistic",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Independent",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Manner-less",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Methodical",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Modern",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Naive",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Neat",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Obedient",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Old-fashioned",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Outspoken",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Predictable",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Private",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Protective",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Quiet",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Regretful",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Romantic",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Self-reliant",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Sentimental",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Skeptical",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Stern",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Strict",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Strong-willed",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Superstitious",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Tough",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Trusting",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Unambitious",
+    "type": "NEUTRAL"
+  },
+  {
+    "trait": "Whimsical",
+    "type": "NEUTRAL"
+  }
+]

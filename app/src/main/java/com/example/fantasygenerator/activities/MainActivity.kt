@@ -24,7 +24,12 @@ class MainActivity : AppCompatActivity() {
             characterOptionsRepository = CharacterOptionsRepository.getInstance(
                 AppDatabase.getInstance(this@MainActivity).characterOptionsDao()
             )
-            if(!checkIfDatabaseWasLoaded()) loadDatabaseData()
+
+            /*ideally this would store a version # with the database or do some kind of check to see if new values existed?
+            so that when the app is updated, if there were new data included in the assets folder it would then add the
+            updated data to the device w/out overwriting any existing data. */
+//            if(!checkIfDatabaseWasLoaded())
+                loadDatabaseData()
         }
 
         characters.setOnClickListener {
@@ -42,17 +47,22 @@ class MainActivity : AppCompatActivity() {
     has data in the database so it's not doing this every time app starts. It would overwrite user
     changes to database if they deleted any of the defaults. */
     private fun loadDatabaseData() {
-        //this converts the old name style files to the new; should move this logic somewhere & think about using it to migrate existing app characters to this one
+        //this converts the old name & trait style files to the new; should move this logic somewhere & think about using it to migrate existing app characters to this one
 //        val oldNames = JsonFileUtil.loadOldNames(this@CharacterActivity)
 //        JsonFileUtil.saveNames(oldNames, this@CharacterActivity)
+
+//        val oldTraits = JsonFileUtil.loadOldTraits(this@MainActivity)
+//        JsonFileUtil.saveTraits(oldTraits, this@MainActivity)
+
         val names = JsonFileUtil.loadNames(this@MainActivity)
         names.run {
-            val success = characterOptionsRepository.addNames(this)
-            val debug = 0
+            characterOptionsRepository.addNames(this)
         }
 
-        val trait = Trait("short-tempered", TraitType.NEGATIVE)
-        characterOptionsRepository.addTrait(trait)
+        val traits = JsonFileUtil.loadTraits(this@MainActivity)
+        traits.run {
+            characterOptionsRepository.addTraits(this)
+        }
 
         val motivations = JsonFileUtil.loadMotivations(this@MainActivity)
         motivations?.run {
@@ -69,7 +79,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun Character.getName(): Name {
         val names = characterOptionsRepository.getAllNames().value
-        val debug = 0
+
         names?.forEach {
            if(it.name.startsWith("B")) return it
         }

@@ -7,7 +7,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.FileOutputStream
 import java.io.IOException
-import java.util.*
 
 open class JsonFileUtil {
     fun loadJsonFile(filePath: String, context: Context): String? {
@@ -25,6 +24,14 @@ open class JsonFileUtil {
     }
 
     companion object {
+        fun loadOldTraits(context: Context): OldTraits {
+            val string = JsonFileUtil().loadJsonFile("attributes.json", context)
+            var traits = OldTraits(positive = emptyList(), negative = emptyList(), neutral = emptyList())
+            string?.run {
+                traits = Gson().fromJson(this)
+            }
+            return traits
+        }
 
         fun loadOldNames(context: Context): OldNames {
             val string = JsonFileUtil().loadJsonFile("names.json", context)
@@ -46,9 +53,44 @@ open class JsonFileUtil {
                         fos.write(this.toByteArray())
                     }
                 } catch (ioe: IOException) {
-                    Log.d("json name conversion", ioe.message)
+                    Log.d("json name conversion ", ioe.message)
                 }
             }
+        }
+
+        fun saveTraits(traits: OldTraits, context: Context) {
+            val newTraits = convertTraits(traits)
+            if(newTraits.isNotEmpty()) {
+                val file = "traits.json"
+                val traitsJson = Gson().toJson(newTraits)
+                try {
+                    val fos: FileOutputStream = context.openFileOutput(file, Context.MODE_PRIVATE)
+                    traitsJson?.run {
+                        fos.write(this.toByteArray())
+                    }
+                } catch (ioe: IOException) {
+                    Log.d("json trait conversion ", ioe.message)
+                }
+            }
+        }
+
+        private fun convertTraits(traits: OldTraits): List<Trait> {
+            val newTraits = mutableListOf<Trait>()
+            traits.run {
+                positive.forEach {
+                    trait -> newTraits.add(Trait(trait, TraitType.POSITIVE))
+                }
+
+                negative.forEach {
+                    trait -> newTraits.add(Trait(trait, TraitType.NEGATIVE))
+                }
+
+                neutral.forEach {
+                    trait -> newTraits.add(Trait(trait, TraitType.NEUTRAL))
+                }
+            }
+
+            return newTraits
         }
 
        private fun convertNames(names: OldNames): List<Name> {
@@ -62,7 +104,7 @@ open class JsonFileUtil {
                     name -> newNames.add(Name(name, Gender.FEMALE))
                 }
             }
-            return newNames;
+            return newNames
         }
 
         fun loadNames(context: Context): List<Name> {
@@ -73,6 +115,16 @@ open class JsonFileUtil {
             }
 
             return names
+        }
+
+        fun loadTraits(context: Context): List<Trait> {
+            val string = JsonFileUtil().loadJsonFile("traits.json", context)
+            var traits: List<Trait> = emptyList()
+            string?.run {
+                traits = Gson().fromJson<List<Trait>>(this)
+            }
+
+            return traits
         }
 
         fun loadMotivations(context: Context): List<Motivation> {
